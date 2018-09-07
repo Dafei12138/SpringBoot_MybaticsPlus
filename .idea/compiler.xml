@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sbmp_admin" />
+        <module name="sbmp_api" />
+        <module name="sbmp_common" />
+        <module name="sbmp_data" />
+        <module name="sbmp_web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sbmp_admin" target="1.7" />
+      <module name="sbmp_api" target="1.8" />
+      <module name="sbmp_common" target="1.8" />
+      <module name="sbmp_data" target="1.8" />
+      <module name="sbmp_web" target="1.7" />
+      <module name="SpringBoot_MybaticsPlus" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sbmp_admin:war">
+    <output-path>$PROJECT_DIR$/sbmp_admin/target</output-path>
+    <root id="archive" name="sbmp_admin.war">
+      <element id="artifact" artifact-name="sbmp_admin:war exploded" />
+    </root>
+  </artifact>
+</component>

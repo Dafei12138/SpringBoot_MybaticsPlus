@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot_MybaticsPlus.iml" filepath="$PROJECT_DIR$/SpringBoot_MybaticsPlus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbmp_admin/sbmp_admin.iml" filepath="$PROJECT_DIR$/sbmp_admin/sbmp_admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbmp_api/sbmp_api.iml" filepath="$PROJECT_DIR$/sbmp_api/sbmp_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbmp_common/sbmp_common.iml" filepath="$PROJECT_DIR$/sbmp_common/sbmp_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbmp_data/sbmp_data.iml" filepath="$PROJECT_DIR$/sbmp_data/sbmp_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbmp_web/sbmp_web.iml" filepath="$PROJECT_DIR$/sbmp_web/sbmp_web.iml" />
+    </modules>
+  </component>
+</project>

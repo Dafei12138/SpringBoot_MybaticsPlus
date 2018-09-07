@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sbmp</groupId>
+    <artifactId>SpringBoot_MybaticsPlus</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>sbmp_admin</module>
+        <module>sbmp_web</module>
+        <module>sbmp_api</module>
+        <module>sbmp_common</module>
+        <module>sbmp_data</module>
+    </modules>
+
+    <!-- 公共spring-boot配置，下面依赖jar文件不用在写版本号 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <!-- 自动包含以下信息： -->
+        <!-- 1.使用Java6编译级别 -->
+        <!-- 2.使UTF-8编码 -->
+        <!-- 3.实现了通用的测试框架 (JUnit, Hamcrest, Mockito). -->
+        <!-- 4.智能资源过滤 -->
+        <!-- 5.智能的插件配置(exec plugin, surefire, Git commit ID, shade). -->
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- spring boot 最新稳定版本 -->
+        <version>2.0.3.RELEASE</version>
+        <!-- 表示父模块pom的相对路径，这里没有值 -->
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+
+        <sbmp_common.version>1.0-SNAPSHOT</sbmp_common.version>
+        <sbmp_data_center.version>1.0-SNAPSHOT</sbmp_data_center.version>
+        <sbmp_api.version>1.0-SNAPSHOT</sbmp_api.version>
+        <sbmp_admin.version>1.0-SNAPSHOT</sbmp_admin.version>
+
+        <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
+        <druid-spring-boot-starter.version>1.1.9</druid-spring-boot-starter.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <fastjson.version>1.2.47</fastjson.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.sbmp</groupId>
+                <artifactId>sbmp_common</artifactId>
+                <version>${sbmp_common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sbmp</groupId>
+                <artifactId>sbmp_data</artifactId>
+                <version>${sbmp_data.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sbmp</groupId>
+                <artifactId>sbmp_api</artifactId>
+                <version>${sbmp_api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sbmp</groupId>
+                <artifactId>sbmp_admin</artifactId>
+                <version>${sbmp_admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sbmp</groupId>
+                <artifactId>sbmp_web</artifactId>
+                <version>${sbmp_web.version}</version>
+            </dependency>
+            <!-- alibaba的druid数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <!-- 测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <!-- 只在test测试里面运行 -->
+            <scope>test</scope>
+        </dependency>
+        <!-- 热部署 -->
+        <!-- devtools可以实现页面热部署（即页面修改后会立即生效，这个可以直接在application.properties文件中配置spring.thymeleaf.cache=false来实现） -->
+        <!-- 实现类文件热部署（类文件修改后不会立即生效），实现对属性文件的热部署。 -->
+        <!-- 即devtools会监听classpath下的文件变动，并且会立即重启应用（发生在保存时机），注意：因为其采用的虚拟机机制，该项重启是很快的 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖boot项目的项目如果想要使用devtools，需要重新引入 -->
+            <optional>true</optional>
+        </dependency>
+        <!-- Swagger2强大RESTful API文档 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.0-gamma</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>
