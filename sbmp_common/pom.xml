@@ -10,6 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sbmp_common</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sbmp</groupId>
+            <artifactId>sbmp_data</artifactId>
+            <version>${sbmp_data.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

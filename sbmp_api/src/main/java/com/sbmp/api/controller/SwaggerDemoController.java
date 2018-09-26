@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by Administrator on 2017/9/13.
  */
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 @Api("swaggerDemoController相关的api")
 public class SwaggerDemoController {
 

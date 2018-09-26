@@ -6,10 +6,118 @@
         <artifactId>SpringBoot_MybaticsPlus</artifactId>
         <groupId>com.sbmp</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sbmp_api</artifactId>
+    <packaging>war</packaging>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sbmp</groupId>
+            <artifactId>sbmp_common</artifactId>
+            <version>${sbmp_common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sbmp</groupId>
+            <artifactId>sbmp_data</artifactId>
+            <version>${sbmp_data.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>sbmp_api</finalName>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <!--<plugin>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+                    <!--<configuration>-->
+                        <!--&lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;-->
+                        <!--<mainClass>com.sbmp.api.ApiApplication</mainClass>-->
+                        <!--&lt;!&ndash;<layout>ZIP</layout>&ndash;&gt;-->
+                    <!--</configuration>-->
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<goals>-->
+                                <!--<goal>repackage</goal>&lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
+                <!--</plugin>-->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <!--<groupId>org.codehaus.mojo</groupId>-->
+                    <!--<artifactId>tomcat-maven-plugin</artifactId>-->
+                    <configuration>
+                        <url>http://localhost:8080/manager/text</url>
+                        <server>tomcat</server>
+                        <username>tomcat</username>
+                        <password>tomcat</password>
+                        <!--<path>/web</path>  war包包名-->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!--&lt;!&ndash;spring boot打包的话需要指定一个唯一的入门&ndash;&gt;-->
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;-->
+                    <!--<mainClass>com.sbmp.api.ApiApplication</mainClass>-->
+                    <!--&lt;!&ndash;<layout>ZIP</layout>&ndash;&gt;-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>repackage</goal>&lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>

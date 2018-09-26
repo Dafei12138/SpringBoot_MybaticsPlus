@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sbmp_data</artifactId>
+    <packaging>jar</packaging>
 
 
 </project>

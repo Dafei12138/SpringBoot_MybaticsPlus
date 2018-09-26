@@ -37,7 +37,7 @@
         <java.version>1.8</java.version>
 
         <sbmp_common.version>1.0-SNAPSHOT</sbmp_common.version>
-        <sbmp_data_center.version>1.0-SNAPSHOT</sbmp_data_center.version>
+        <sbmp_data.version>1.0-SNAPSHOT</sbmp_data.version>
         <sbmp_api.version>1.0-SNAPSHOT</sbmp_api.version>
         <sbmp_admin.version>1.0-SNAPSHOT</sbmp_admin.version>
 
@@ -97,6 +97,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
         <!-- 测试 -->
         <dependency>
@@ -114,6 +115,19 @@
             <artifactId>spring-boot-devtools</artifactId>
             <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖boot项目的项目如果想要使用devtools，需要重新引入 -->
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl-framework-starter</artifactId>
+            <version>1.1.60.RELEASE</version>
         </dependency>
         <!-- Swagger2强大RESTful API文档 -->
         <dependency>
@@ -150,7 +164,65 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
+    <build>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <!--<groupId>org.codehaus.mojo</groupId>-->
+                    <!--<artifactId>tomcat-maven-plugin</artifactId>-->
+                    <!--<version>1.2-SNAPSHOT</version>-->
+                    <configuration>
+                        <url>http://localhost:8080/manager/text</url>
+                        <server>tomcat</server>
+                        <username>tomcat</username>
+                        <password>tomcat</password>
+                        <!--<warSourceDirectory>${basedir}/target</warSourceDirectory>-->
+                        <!--<path>/webapp</path>-->
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
