@@ -14,11 +14,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="sbmp_admin" target="1.7" />
-      <module name="sbmp_api" target="1.7" />
+      <module name="sbmp_admin" target="1.8" />
+      <module name="sbmp_api" target="1.8" />
       <module name="sbmp_common" target="1.8" />
       <module name="sbmp_data" target="1.8" />
-      <module name="sbmp_web" target="1.7" />
+      <module name="sbmp_web" target="1.8" />
       <module name="SpringBoot_MybaticsPlus" target="1.8" />
     </bytecodeTargetLevel>
   </component>
